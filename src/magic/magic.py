@@ -43,7 +43,12 @@ class Magic:
         Returns:
             bool: True si n es primo, False en caso contrario
         """
-        pass
+        if n < 2:
+            return False
+        for i in range(2, int(math.sqrt(n)) + 1):
+            if n % i == 0:
+                return False
+        return True
     
     def generar_primos(self, n):
         """
@@ -55,7 +60,7 @@ class Magic:
         Returns:
             list: Lista de números primos hasta n
         """
-        pass
+        return [x for x in range(2, n+1) if self.es_primo(x)]
     
     def es_numero_perfecto(self, n):
         """
