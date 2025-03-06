@@ -262,7 +262,7 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        pass
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
     
     def punto_medio(self, x1, y1, x2, y2):
         """
@@ -277,7 +277,7 @@ class Geometria:
         Returns:
             tuple: Coordenadas (x, y) del punto medio
         """
-        pass
+        return ((x1 + x2) / 2, (y1 + y2) / 2)
     
     def pendiente_recta(self, x1, y1, x2, y2):
         """
