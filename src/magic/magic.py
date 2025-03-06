@@ -112,7 +112,10 @@ class Magic:
         Returns:
             int: El máximo común divisor de a y b
         """
-        pass
+        while b:
+            a, b = b, a % b
+        return a
+    
     
     def mcm(self, a, b):
         """
@@ -137,7 +140,7 @@ class Magic:
         Returns:
             int: La suma de los dígitos de n
         """
-        pass
+        return sum(int(d) for d in str(n))
     
     def es_numero_armstrong(self, n):
         """
