@@ -209,7 +209,7 @@ class Geometria:
         Returns:
             float: Volumen de la esfera
         """
-        pass
+        return (4/3) * math.pi * radio**3
     
     def area_superficie_esfera(self, radio):
         """
@@ -221,7 +221,7 @@ class Geometria:
         Returns:
             float: Área de la superficie de la esfera
         """
-        pass
+        return 4 * math.pi * radio**2
     
     def volumen_cilindro(self, radio, altura):
         """
@@ -234,7 +234,7 @@ class Geometria:
         Returns:
             float: Volumen del cilindro
         """
-        pass
+        return math.pi * radio**2 * altura
     
     def area_superficie_cilindro(self, radio, altura):
         """
@@ -247,7 +247,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        pass
+        return 2 * math.pi * radio * (radio + altura)
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         """
