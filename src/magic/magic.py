@@ -14,7 +14,10 @@ class Magic:
         Returns:
             int: El n-ésimo número de Fibonacci
         """
-        pass
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a
     
     def secuencia_fibonacci(self, n):
         """
@@ -24,9 +27,11 @@ class Magic:
             n (int): Cantidad de números a generar
             
         Returns:
-            list: Lista con los primeros n números de Fibonacci
-        """
-        pass
+            list: Lista con los primeros n números de Fibonacci """
+        secuencia = [0, 1]
+        for _ in range(2, n):
+            secuencia.append(secuencia[-1] + secuencia[-2])
+        return secuencia[:n]
     
     def es_primo(self, n):
         """
