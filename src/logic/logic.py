@@ -77,7 +77,10 @@ class Logica:
         Returns:
             bool: Resultado de a NAND b
         """
-        pass
+        if not (a and b):
+            return True
+        else:
+            return False
     
     def NOR(self, a, b):
         """
@@ -90,7 +93,10 @@ class Logica:
         Returns:
             bool: Resultado de a NOR b
         """
-        pass
+        if not (a or b):
+            return True
+        else:
+            return False
     
     def XNOR(self, a, b):
         """
