@@ -72,7 +72,7 @@ class Magic:
         Returns:
             bool: True si n es un número perfecto, False en caso contrario
         """
-        pass
+        return sum(i for i in range(1, n) if n % i == 0) == n
     
     def triangulo_pascal(self, filas):
         """
@@ -96,7 +96,10 @@ class Magic:
         Returns:
             int: El factorial de n
         """
-        pass
+        resultado = 1
+        for i in range(2, n+1):
+            resultado *= i
+        return resultado
     
     def mcd(self, a, b):
         """
