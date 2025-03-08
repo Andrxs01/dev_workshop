@@ -100,16 +100,13 @@ class Strings:
         return " ".join([palabra.capitalize() for palabra in texto.split(" ")])
     
     def eliminar_espacios_duplicados(self, texto):
-        """
-        Elimina espacios duplicados en una cadena.
-        
-        Args:
-            texto (str): Cadena con posibles espacios duplicados
-            
-        Returns:
-            str: Cadena sin espacios duplicados
-        """
-        pass
+        resultado = ""
+        anterior = ""
+        for char in texto:
+            if char != " " or anterior != " ":
+                resultado += char
+            anterior = char
+        return resultado.strip()
     
     def es_numero_entero(self, texto):
         """
@@ -121,7 +118,17 @@ class Strings:
         Returns:
             bool: True si la cadena representa un número entero, False en caso contrario
         """
-        pass
+        texto = texto.strip()
+        if not texto:
+            return False
+        if texto[0] == "-":
+            texto = texto[1:]
+        if not texto:
+            return False
+        for char in texto:
+            if char < "0" or char > "9":
+                return False
+        return True
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
@@ -134,7 +141,14 @@ class Strings:
         Returns:
             str: Cadena cifrada
         """
-        pass
+        resultado = ""
+        for char in texto:
+            if char.isalpha():
+                base = ord("A") if char.isupper() else ord("a")
+                resultado += chr((ord(char) - base + desplazamiento) % 26 + base)
+            else:
+                resultado += char
+        return resultado
     
     def descifrar_cesar(self, texto, desplazamiento):
         """
@@ -147,7 +161,7 @@ class Strings:
         Returns:
             str: Cadena descifrada
         """
-        pass
+        return self.cifrar_cesar(texto, -desplazamiento)
     
     def encontrar_subcadena(self, texto, subcadena):
         """
@@ -160,4 +174,16 @@ class Strings:
         Returns:
             list: Lista con las posiciones iniciales de cada ocurrencia
         """
-        pass
+        if not subcadena or len(subcadena) > len(texto):
+            return []
+        posiciones = []
+        len_sub = len(subcadena)
+        for i in range(len(texto) - len_sub + 1):
+            match = True
+            for j in range(len_sub):
+                if texto[i + j] != subcadena[j]:
+                    match = False
+                    break
+            if match:
+                posiciones.append(i)
+        return posiciones
