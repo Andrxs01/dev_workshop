@@ -69,21 +69,20 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        i = 0
-        j = 0
+        i, j = 0, 0
+        resultado = []
+    
         while i < len(lista1) and j < len(lista2):
-            if lista1[i] <= lista2[j]:
+            if lista1[i] < lista2[j]:
                 resultado.append(lista1[i])
-                i += 1
-            else:
-                resultado.append(lista2[j])
-                j += 1
-        while i < len(lista1):
-            resultado.append(lista1[i])
             i += 1
-        while j < len(lista2):
+        else:
             resultado.append(lista2[j])
             j += 1
+    
+            resultado.extend(lista1[i:])
+            resultado.extend(lista2[j:])
+    
         return resultado
     
     def rotar_lista(self, lista, k):
@@ -128,16 +127,20 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
+        for elemento in conjunto1:
+            if elemento not in conjunto2:
+                return False
+        return True
     
     def implementar_pila(self):
-        """
-        Implementa una estructura de datos tipo pila (stack) usando listas.
-        
-        Returns:
-            dict: Diccionario con métodos push, pop, peek y is_empty
-        """
-        pass
+        pila = []
+    
+        return {
+            "push": lambda x: pila.append(x),
+            "pop": lambda: pila.pop() if pila else None,
+            "peek": lambda: pila[-1] if pila else None,
+            "is_empty": lambda: len(pila) == 0
+        }
     
     def implementar_cola(self):
         """
@@ -146,7 +149,13 @@ class Data:
         Returns:
             dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
         """
-        pass
+        return {
+            "enqueue": lambda x: cola.append(x),
+            "dequeue": lambda: cola.pop(0) if cola else None,
+            "peek": lambda: cola[0] if cola else None,
+            "is_empty": lambda: len(cola) == 0
+        }
+    
     
     def matriz_transpuesta(self, matriz):
         """
@@ -158,4 +167,6 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
-        pass
+        if not matriz:
+            return []
+        return [[matriz[j][i] for j in range(len(matriz))] for i in range(len(matriz[0]))]
