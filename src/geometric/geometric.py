@@ -262,7 +262,7 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        return math.hypot(x2 - x1, y2 - y1)
+        return round(math.hypot(x2 - x1, y2 - y1), 2)
     
     def punto_medio(self, x1, y1, x2, y2):
         """
@@ -308,7 +308,7 @@ class Geometria:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """
         A = y2 - y1
-        B = x2 - x1
+        B = -(x2 - x1)
         C = x1 * y2 - x2 * y1
         return (A, B, C)
     
