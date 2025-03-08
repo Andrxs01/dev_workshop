@@ -75,13 +75,18 @@ class Data:
         while i < len(lista1) and j < len(lista2):
             if lista1[i] < lista2[j]:
                 resultado.append(lista1[i])
+                i += 1
+            else:
+                resultado.append(lista2[j])
+                j += 1
+    
+        while i < len(lista1):
+            resultado.append(lista1[i])
             i += 1
-        else:
+    
+        while j < len(lista2):
             resultado.append(lista2[j])
             j += 1
-    
-            resultado.extend(lista1[i:])
-            resultado.extend(lista2[j:])
     
         return resultado
     
@@ -143,20 +148,16 @@ class Data:
         }
     
     def implementar_cola(self):
-        """
-        Implementa una estructura de datos tipo cola (queue) usando listas.
-        
-        Returns:
-            dict: Diccionario con métodos enqueue, dequeue, peek y is_empty
-        """
+        from collections import deque
+        cola = deque()
+    
         return {
-            "enqueue": lambda x: cola.append(x),
-            "dequeue": lambda: cola.pop(0) if cola else None,
+            "enqueue": cola.append,
+            "dequeue": cola.popleft,
             "peek": lambda: cola[0] if cola else None,
             "is_empty": lambda: len(cola) == 0
         }
-    
-    
+
     def matriz_transpuesta(self, matriz):
         """
         Calcula la transpuesta de una matriz.
