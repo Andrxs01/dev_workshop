@@ -81,15 +81,7 @@ class Magic:
         Returns:
             bool: True si n es un número perfecto, False en caso contrario
         """
-        if n <= 0:
-            return False
-        suma = 1
-        for i in range(2, int(n ** 0.5) + 1):
-            if n % i == 0:
-                suma += i
-                if i != n // i:
-                    suma += n // i
-        return suma == n
+        return sum(i for i in range(1, n) if n % i == 0) == n
     
     def triangulo_pascal(self, filas):
         """
