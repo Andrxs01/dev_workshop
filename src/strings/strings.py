@@ -101,7 +101,9 @@ class Strings:
         return " ".join([palabra.capitalize() for palabra in texto.split(" ")])
     
     def eliminar_espacios_duplicados(self, texto):
-        return " ".join(texto.split())
+        inicio = " " if texto.startswith(" ") else ""
+        fin = " " if texto.endswith(" ") else ""
+        return inicio + " ".join(texto.split()) + fin
     
     def es_numero_entero(self, texto):
         """
