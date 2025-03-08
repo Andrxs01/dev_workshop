@@ -247,7 +247,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        return 2 * math.pi * radio * (radio + altura)
+        return 2 * math.pi * radio ** 2 + 2 * math.pi * radio * altura
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         """
@@ -307,9 +307,14 @@ class Geometria:
         Returns:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """
+        if x1 == x2: 
+            return (1, 0, -x1)
+        if y1 == y2:  
+            return (0, 1, -y1)  
+        
         A = y2 - y1
-        B = -(x2 - x1)
-        C = x1 * y2 - x2 * y1
+        B = x1 - x2
+        C = (x2 * y1) - (x1 * y2)
         return (A, B, C)
     
     def area_poligono_regular(self, num_lados, lado, apotema):

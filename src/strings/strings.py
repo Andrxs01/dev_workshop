@@ -59,8 +59,9 @@ class Strings:
         Returns:
             int: Número de consonantes en la cadena
         """
+        
         vocales = "aeiouAEIOU"
-        return sum(1 for char in texto if char.isalpha() and char.lower() not in vocales)
+        return sum(1 for char in texto if char.isalpha() and char not in vocales)
     
     def es_anagrama(self, texto1, texto2):
         """
@@ -100,13 +101,7 @@ class Strings:
         return " ".join([palabra.capitalize() for palabra in texto.split(" ")])
     
     def eliminar_espacios_duplicados(self, texto):
-        resultado = ""
-        anterior = ""
-        for char in texto:
-            if char != " " or anterior != " ":
-                resultado += char
-            anterior = char
-        return resultado.strip()
+        return " ".join(texto.split())
     
     def es_numero_entero(self, texto):
         """
@@ -123,12 +118,7 @@ class Strings:
             return False
         if texto[0] == "-":
             texto = texto[1:]
-        if not texto:
-            return False
-        for char in texto:
-            if char < "0" or char > "9":
-                return False
-        return True
+        return texto.isdigit()
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
