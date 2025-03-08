@@ -247,7 +247,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        return 2 * math.pi * radio ** 2 + 2 * math.pi * radio * altura
+        return (2 * math.pi * radio ** 2) + (2 * math.pi * radio * altura)
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         """
@@ -318,18 +318,8 @@ class Geometria:
         return (A, B, C)
     
     def area_poligono_regular(self, num_lados, lado, apotema):
-        """
-        Calcula el área de un polígono regular.
-        
-        Args:
-            num_lados (int): Número de lados del polígono
-            lado (float): Longitud de cada lado
-            apotema (float): Longitud de la apotema
-            
-        Returns:
-            float: Área del polígono regular
-        """
-        return (num_lados * lado * apotema) / 2
+       perimetro = num_lados * lado
+       return (perimetro * apotema) / 2
     
     def perimetro_poligono_regular(self, num_lados, lado):
         """
