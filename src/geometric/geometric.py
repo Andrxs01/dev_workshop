@@ -247,7 +247,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        return 2 * math.pi * radio * (radio + altura)
+        return 2 * math.pi * radio**2 + 2 * math.pi * radio * altura
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         """
@@ -277,7 +277,7 @@ class Geometria:
         Returns:
             tuple: Coordenadas (x, y) del punto medio
         """
-        return ((x1 + x2) / 2, (y1 + y2) / 2)
+        return math.hypot(x2 - x1, y2 - y1)
     
     def pendiente_recta(self, x1, y1, x2, y2):
         """
