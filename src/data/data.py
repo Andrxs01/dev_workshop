@@ -14,8 +14,13 @@ class Data:
         Returns:
             list: Lista con los elementos en orden inverso
         """
-        pass
-    
+        left = 0
+        right = len(lista) - 1
+        while left < right:
+            lista[left], lista[right] = lista[right], lista[left]
+            left += 1
+            right -= 1
+        return lista
     def buscar_elemento(self, lista, elemento):
         """
         Busca un elemento en una lista y devuelve su índice (o -1 si no existe).
@@ -28,7 +33,10 @@ class Data:
         Returns:
             int: Índice del elemento o -1 si no se encuentra
         """
-        pass
+        for i in range(len(lista)):
+            if lista[i] == elemento:
+                return i
+        return -1
     
     def eliminar_duplicados(self, lista):
         """
@@ -41,7 +49,14 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+        vistos = []
+        vistos_con_tipo = []
+        for elemento in lista:
+            tipo_elemento = type(elemento)
+            if (elemento, tipo_elemento) not in vistos_con_tipo:
+                vistos.append(elemento)
+                vistos_con_tipo.append((elemento, tipo_elemento))
+        return vistos
     
     def merge_ordenado(self, lista1, lista2):
         """
