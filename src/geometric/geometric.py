@@ -41,7 +41,7 @@ class Geometria:
         Returns:
             float: Área del círculo
         """
-        return 2 * math.pi  * radio
+        return math.pi * radio ** 2
     
     def perimetro_circulo(self, radio):
         """
@@ -247,7 +247,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        return 2 * math.pi * radio ** 2 + 2 * math.pi * radio * altura
+        return 2 * math.pi * radio * (radio + altura)
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
         """
@@ -262,7 +262,7 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        return round(math.sqrt((x2 - x1) * 2 + (y2 - y1) * 2), 2)
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
     
     def punto_medio(self, x1, y1, x2, y2):
         """
